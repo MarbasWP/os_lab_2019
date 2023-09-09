@@ -1,0 +1,13 @@
+# !/bin/bash
+echo "Введите числа: "
+read a
+sum1=0
+count=0
+while [ $a -ne 0 ]
+do 
+sum1=$(( $sum1 + $a ))
+count=$(($count+1))
+read a
+donevg=$(bc<<<"scale=3;$sum1/$count")
+echo  "$sum1"
+echo  "$avg"
