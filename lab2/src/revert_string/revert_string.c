@@ -1,8 +1,10 @@
 #include "revert_string.h"
 #include <string.h>
+#include <stdio.h>
 
 void RevertString(char *str)
-{
+{   
+    //printf("!!!!!!!!\n");
 	int length = strlen(str);
     for (int i = 0; i < length / 2; i++)
     {

@@ -3,7 +3,7 @@
 #include "revert_string.h"
 
 int main() {
-    void *handle = dlopen("./librevertstring_dynamic.so", RTLD_LAZY);
+    void *handle = dlopen("librevert_string.so", RTLD_LAZY);
     void (*RevertString)(char *str) = dlsym(handle, "RevertString");
 
     char str[] = "Hello, World!";
