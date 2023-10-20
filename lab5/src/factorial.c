@@ -3,12 +3,10 @@
 #include <string.h>
 #include <pthread.h>
 
-// Глобальные переменные
 pthread_mutex_t mutex;
-unsigned long long result = 1; // Результат факториала
+unsigned long long result = 1;
 int k, pnum, mod;
 
-// Функция, которую выполняют потоки для вычисления факториала
 void *calculate_factorial(void *arg) {
     int thread_num = *(int *)arg;
     unsigned long long local_result = 1;
@@ -68,7 +66,6 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // Вывод результата
     if (mod == 1) {
         printf("%d! mod 1 = 0\n", k);
     } else {
