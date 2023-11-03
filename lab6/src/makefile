@@ -1,19 +1,16 @@
 CC=gcc
-CFLAGS=-I. -pthread
+CFLAGS= -I.
 
-all : client server
+all : server client
 
-client : client.o
-	$(CC) -o client client.o $(CFLAGS)
+server : server.c library.o library.h
+	$(CC) -pthread -o server server.c library.o $(CFLAGS)
 
-client.o : client.c
-	$(CC) -o client.o -c client.c $(CFLAGS)
+client : client.c library.o library.h
+	$(CC) -pthread -o client client.c library.o $(CFLAGS)
 
-server : server.o
-	$(CC) -o server server.o $(CFLAGS)
-
-server.o : server.c
-	$(CC) -o server.o -c server.c $(CFLAGS)
+library.o : library.h
+	$(CC) -o library.o -c library.c $(CFLAGS)
 
 clean :
-	rm server.o client.o
+	rm server client library.o
